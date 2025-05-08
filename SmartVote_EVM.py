@@ -5,14 +5,11 @@ import SSD1306
 import network
 import urequests
 
-# WiFi credentials
 ssid = 'IoT'
 password = '12345678'
 
-# Google Sheets script URL
 google_script_url = 'https://script.google.com/macros/s/AKfycbzCwMhRI3pFMXRPsvyuAHFWl66SlXE85AdtBXh-tKIIDFSlz5SVa8bd2imcjVRxpjg3/exec'
 
-# Pin configuration
 i2c_scl = Pin(22, Pin.OUT, Pin.PULL_UP)
 i2c_sda = Pin(21, Pin.OUT, Pin.PULL_UP)
 spi_sck = Pin(18, Pin.OUT)
@@ -23,24 +20,20 @@ spi_rst = Pin(4, Pin.OUT)
 red_led = Pin(14, Pin.OUT)
 green_led = Pin(27, Pin.OUT)
 buzzer = Pin(25, Pin.OUT)
-button_pins = [0, 13, 14, 15, 16]  # 4 candidates + 1 confirm/reset
+button_pins = [0, 13, 14, 15, 16] 
 
-# Initialize I2C and OLED with error handling
 try:
     i2c = SoftI2C(scl=i2c_scl, sda=i2c_sda, freq=400000)
     oled = SSD1306.SSD1306_I2C(128, 64, i2c, addr=0x3C)
 except OSError as e:
     print("OLED init failed:", e)
-    oled = None  # Fallback to no display
+    oled = None 
 
-# Initialize SPI and RFID
 spi = SoftSPI(baudrate=100000, polarity=0, phase=0, sck=spi_sck, mosi=spi_mosi, miso=spi_miso)
 rdr = MFRC522(spi=spi, gpioRst=spi_rst, gpioCs=spi_cs)
 
-# Initialize buttons
 buttons = [Pin(pin, Pin.IN, Pin.PULL_DOWN) for pin in button_pins]
 
-# RFID and candidate data
 rfid_name = ["Asik Dial Kuffer", "Dip Biswas", "Student1", "Student2", "Student3"]
 rfid_uid = ["0x0358ae34", "0xe7458e7a", "0x21d0fd1d", "0x29eec498", "0x59e1f097"]
 candidates = ["A. Rahman", "B. Khan", "C. Ali", "D. Hossain"]
@@ -105,12 +98,10 @@ def send_vote_to_google_sheets(voter_id, candidate):
         word_text('Log Error', 0, 50, False)
         return False
 
-# Boot animation
 word_text('SmartVote EVM', 10, 10, True)
 word_text('Mission Control', 10, 30, False)
 sleep(2)
 
-# Connect to WiFi
 wifi_connected = connect_wifi(ssid, password)
 
 print("Place NID Card")
