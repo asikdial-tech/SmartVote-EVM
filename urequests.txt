@@ -1,0 +1,3 @@
+# Placeholder for urequests.py
+# Use standard MicroPython urequests library
+# Supports post() method with JSON payload

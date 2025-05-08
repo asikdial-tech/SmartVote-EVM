@@ -1,0 +1,51 @@
+SmartVote EVM Connection Diagram
+===============================
+
+ESP32 Power:
+- 3.3V: Common 3.3V rail (USB or 9V battery with regulator)
+- GND: Common GND rail
+
+OLED (SSD1306, 0.96-inch, I2C):
+- SDA: Pin 21
+- SCL: Pin 22
+- VCC: 3.3V
+- GND: GND
+- Pull-up resistors: 4.7kΩ from SDA to 3.3V, SCL to 3.3V
+
+RFID (MFRC522):
+- SCK: Pin 18
+- MOSI: Pin 23
+- MISO: Pin 19
+- CS: Pin 5
+- RST: Pin 4
+- VCC: 3.3V
+- GND: GND
+
+LEDs:
+- Red LED:
+  - Anode: Pin 14
+  - Cathode: GND (via 220Ω resistor)
+- Green LED:
+  - Anode: Pin 27
+  - Cathode: GND (via 220Ω resistor)
+
+Buzzer:
+- Positive: Pin 25
+- Negative: GND
+
+Buttons (5 push-buttons, active LOW):
+- Button 1 (ShonarLabs, B0x01):
+  - Pin 12 ----[Switch]---- GND
+  - 10kΩ pull-up: Pin 12 to 3.3V
+- Button 2 (NiravTextiles, B0x02):
+  - Pin 13 ----[Switch]---- GND
+  - 10kΩ pull-up: Pin 13 to 3.3V
+- Button 3 (PadmaCrafts, B0x03):
+  - Pin 15 ----[Switch]---- GND
+  - 10kΩ pull-up: Pin 15 to 3.3V
+- Button 4 (MeghnaTech, B0x04):
+  - Pin 16 ----[Switch]---- GND
+  - 10kΩ pull-up: Pin 16 to 3.3V
+- Button 5 (Reset):
+  - Pin 17 ----[Switch]---- GND
+  - 10kΩ pull-up: Pin 17 to 3.3V
