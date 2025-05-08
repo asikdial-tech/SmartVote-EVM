@@ -24,16 +24,16 @@ SmartVote EVM is an innovative electronic voting machine designed for Bangladesh
 4. **Operation**:
    - OLED displays status (e.g., “Scan RFID”, “Confirmed”).
    - Green LED and buzzer signal successful votes; red LED indicates errors.
-   - Votes are logged with timestamp, voterID, brand ID, and status.
+   - Votes are logged with timestamp, voterID, candidate ID, and status.
 
 ## Operation Flow
-1. Power on: Displays “SmartVote” and “Bangla Brands”.
+1. Power on: Displays “SmartVote”.
 2. Connect to WiFi (SSID: IoT, Password: 12345678).
 3. Scan RFID: Shows user ID or “Denied”.
 4. Select brand or reset.
 5. Log vote: Updates Google Sheet with brand ID (B0x01 to B0x04).
 
 ## Contact
-- Developer: [Your Name]
-- Email: [Your Email]
-- GitHub: [Your GitHub URL]
+- Developer: Asik Dial Kuffer
+- Email: asikdial.tech@gmail.com
+- GitHub: https://github.com/asikdial-tech/
