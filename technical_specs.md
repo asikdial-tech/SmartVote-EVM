@@ -3,7 +3,7 @@
 ## Hardware
 - **Microcontroller**: ESP32-WROOM-32
   - Dual-core, 240 MHz, WiFi-enabled
-  - Power: 3.3V (USB or 9V battery with regulator)
+  - Power: 3.3V (USB or 3.7V or 4V battery with regulator)
 - **Display**: 0.96-inch SSD1306 OLED
   - Resolution: 128x64 pixels
   - Interface: I2C (SDA: Pin 21, SCL: Pin 22)
